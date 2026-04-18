@@ -1,0 +1,22 @@
+name: Build Trading Bot APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: kivy/buildozer:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build APK (auto‑answer yes)
+        run: |
+          yes y | buildozer -v android debug
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: TradingBot-APK
+          path: bin/*.apk
