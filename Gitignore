@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.log
+*.pid
+*.json
+!requirements.txt
+!buildozer.spec
+bin/
+build/
+.docker/
+.vscode/
+*.db
+backup_*/
